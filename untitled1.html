@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saint Raphael — Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --text: #222;
+            --card: #ffffff;
+        }
+        body.dark {
+            --bg: #111;
+            --text: #f4f4f4;
+            --card: #1e1e1e;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Navbar */
+        nav {
+            background: var(--card);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #ffca28;
+        }
+
+        /* Hamburger Menu */
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: var(--card);
+                display: none;
+            }
+            nav ul.active {
+                display: block;
+            }
+            nav ul li {
+                padding: 15px 0;
+                text-align: center;
+            }
+            .menu-btn {
+                display: block;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #5b2cff, #ff6f91, #ffc75f);
+            color: white;
+        }
+
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: 20px;
+        }
+
+        section {
+            padding: 60px 25px;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        /* Cards */
+        .services, .portfolio-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Portfolio Images */
+        .portfolio-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Contact Form */
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: var(--card);
+            color: var(--text);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #111;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #ffca28;
+            color: #111;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111;
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Scroll Animation */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease-out;
+        }
+
+        [data-animate].show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Dark Mode Button */
+        #darkToggle {
+            background: #ffca28;
+            color: #000;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <strong>Saint Raphael</strong>
+        <span class="menu-btn" onclick="toggleMenu()">☰</span>
+        <ul id="menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="darkToggle">Dark Mode</button></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Hello, I'm <strong>Saint Raphael</strong></h1>
+        <p>Web Developer • Designer • Creator</p>
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80">
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" data-animate>
+        <h2>About Me</h2>
+        <p>
+            I am **Saint Raphael**, an upcoming web and app developer passionate about building beautiful,
+            modern, and interactive websites. I love creativity, design, and clean digital experiences.
+        </p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" data-animate>
+        <h2>Services</h2>
+        <div class="services">
+            <div class="card">
+                <h3>Website Design/Creation</h3>
+                <p>Modern UI/UX designs with clean interfaces.You'll surely love it.</p> 
+            </div>
+
+            <div class="card">
+                <h3>Front-End Development</h3>
+                <p>Beautiful responsive websites using PYTHON, HTML, CSS & JS.</p>
+            </div>
+
+            <div class="card">
+                <h3>Brand Identity</h3>
+                <p>Colors, fonts, and digital branding guidelines.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" data-animate>
+        <h2>My Portfolio</h2>
+        <div class="portfolio-box">
+            <div class="card">
+                <img class="portfolio-img" src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=800&q=80">
+                <p>Landing Page UI
+                https://wa.me/<234802768144>?</p>
+            </div>
+
+            <div class="card">
+                <img class="portfolio-img" src="https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&w=800&q=80"
+                <p>Business Website</p>
+            </div>
+
+            <div class="card">
+                <img class="portfolio-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" ottongraph1@gmail.com>
+                <p>Developer Portfolio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-animate>
+        <h2>Contact Me</h2>
+        <p>Send me a message directly:</p>
+
+        <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button class="btn">Send Message</button>
+        </form>
+
+        <br>
+        <a class="btn" href="https://wa.me/234XXXXXXXXXX" target="_blank">Message Me on WhatsApp</a>
+    </section>
+
+    <footer>
+        © 2025 Saint Raphael. All Rights Reserved.
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Hamburger Menu
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+
+        // Dark Mode
+        const toggleBtn = document.getElementById("darkToggle");
+        toggleBtn.onclick = () => {
+            document.body.classList.toggle("dark");
+        };
+
+        // Scroll Animation
+        const elements = document.querySelectorAll("[data-animate]");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add("show");
+            });
+        }, { threshold: 0.2 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
